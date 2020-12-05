@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
   # GET /chats
   # GET /chats.json
   def index
-    @chats = Chat.all
+    ActionCable.server.broadcast "some_channel", {email: 'johnson@5xruby.com', name: 'johnson'}
   end
 
   # GET /chats/1
