@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-
+    <tr>---</tr>
   </tbody>
 </table>
 
@@ -29,8 +29,8 @@
   document.querySelector('form').addEventListener('submit', e => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('!')
-    consumer.subscriptions.subscriptions[0].send_message('a');
+    let data = document.querySelector('textarea').value
+    consumer.subscriptions.subscriptions[0].send_message(data);
   })
 
 </script>

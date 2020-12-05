@@ -7,7 +7,7 @@ class HiChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def send_message
-    ActionCable.server.broadcast "some_channel", {email: 'johnson@5xruby.com', name: 'johnson'}
+  def send_message(data)
+    ActionCable.server.broadcast "some_channel", data
   end
 end

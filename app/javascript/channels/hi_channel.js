@@ -12,11 +12,13 @@ consumer.subscriptions.create("HiChannel", {
 
   received(data) {
     console.log("received", data)
-    // Called when there's incoming data on the websocket for this channel
+    let tr = document.createElement('tr')
+    tr.textContent = data['data']
+    document.querySelector('tr:last-child').appendChild(tr)
   },
 
-  send_message(){
-    this.perform("send_message")
+  send_message(data){
+    this.perform("send_message", {data: data})
   }
 });
 
