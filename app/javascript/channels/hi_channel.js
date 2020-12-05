@@ -1,5 +1,6 @@
 import consumer from "./consumer"
 
+
 consumer.subscriptions.create("HiChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
@@ -12,5 +13,11 @@ consumer.subscriptions.create("HiChannel", {
   received(data) {
     console.log("received", data)
     // Called when there's incoming data on the websocket for this channel
+  },
+
+  send_message(){
+    this.perform("send_message")
   }
 });
+
+window.consumer = consumer;

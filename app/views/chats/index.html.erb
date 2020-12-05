@@ -14,6 +14,23 @@
   </tbody>
 </table>
 
+<%= form_with do |f| %>
+  <%= f.text_area :body, rows: 1, class: "form-control", autofocus: true %>
+  <%= f.submit%>
+<% end %>
+
+
 <br>
 
 <%= link_to 'New Chat', new_chat_path %>
+
+<script>
+
+  document.querySelector('form').addEventListener('submit', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('!')
+    consumer.subscriptions.subscriptions[0].send_message('a');
+  })
+
+</script>
